@@ -76,6 +76,36 @@ let main argv =
         | _ -> MessageBox.Show("Invalid Book ID!") |> ignore)
     form.Controls.AddRange([| borrowLabel; borrowInput; borrowButton |])
 
+// Return book section
+let returnLabel = new Label(Text = "Return Book ID:", AutoSize = true, Top = 380, Left = 340)
+let returnInput = new TextBox(Top = 380, Left = 450, Width = 100)
+let returnButton = new Button(Text = "Return", Top = 380, Left = 560)
+returnButton.Click.Add(fun _ ->
+    match Int32.TryParse(returnInput.Text) with
+    | (true, id) ->
+        if returnBook id then
+            populateTable bookTable
+            returnInput.Clear()
+            MessageBox.Show("Book returned successfully!") |> ignore
+        else
+            populateTable bookTable
+            returnInput.Clear()
+            MessageBox.Show("Book cannot be returned!") |> ignore
+    | _ -> MessageBox.Show("Invalid Book ID!") |> ignore)
+form.Controls.AddRange([| returnLabel; returnInput; returnButton |])
+
+// Search book section
+let searchLabel = new Label(Text = "Search by Title:", AutoSize = true, Top = 420, Left = 340)
+let searchInput = new TextBox(Top = 420, Left = 450, Width = 200)
+let searchButton = new Button(Text = "Search", Top = 420, Left = 660)
+searchButton.Click.Add(fun _ ->
+    let results = searchBooks searchInput.Text
+    bookTable.Rows.Clear()
+    results |> List.iter (fun (_, book) ->
+        bookTable.Rows.Add([| box book.Id; box book.Title; box book.Author; box book.Genre; box book.Status; box (book.BorrowDate |> Option.defaultValue "N/A") |]) |> ignore)
+    if results.IsEmpty then MessageBox.Show("No books found!") |> ignore)
+form.Controls.AddRange([| searchLabel; searchInput; searchButton |])
+
     // Run the form
     Application.Run(form)
     0
