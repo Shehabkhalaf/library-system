@@ -38,3 +38,17 @@ let loadBooks () =
     else
         books <- Map.empty
 
+let saveBooks () =
+    let lines = 
+        books
+        |> Map.toList
+        |> List.map (fun (_, book) ->
+            sprintf "%d|%s|%s|%s|%s|%s" 
+                book.Id 
+                book.Title 
+                book.Author 
+                book.Genre 
+                book.Status 
+                (book.BorrowDate |> Option.defaultValue "N/A"))
+    File.WriteAllLines(dataFilePath, lines)
+
