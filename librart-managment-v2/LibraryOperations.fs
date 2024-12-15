@@ -22,3 +22,20 @@ let borrowBook id =
         true
     | Some(_) -> false
     | None -> false
+    
+let returnBook id =
+    loadBooks()
+    match books.TryFind id with
+    | Some(book) when book.Status = "Borrowed" -> 
+        let updatedBook = { book with Status = "Available"; BorrowDate = None }
+        books <- books.Add(id, updatedBook)
+        saveBooks ()
+        true
+    | Some(_) -> false
+    | None -> false
+
+
+let searchBooks (title: string) =
+    books
+    |> Map.filter (fun _ book -> book.Title.ToLower().Contains(title.ToLower()))
+    |> Map.toList
