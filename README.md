@@ -79,11 +79,3 @@ This section highlights individual contributions to the project.
    - Borrow or return books.
    - View the list of available and borrowed books.
 
----
-
-- Thanks to all contributors for their efforts in making this project successful.
-- Special thanks to [specific people or organizations, if any].
-
----
-
-For further questions or collaboration, contact us at [your-email@example.com].
