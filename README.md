@@ -40,29 +40,29 @@ The **Library Management System** is a Windows Forms application designed to man
 
 This section highlights individual contributions to the project.
 
-### [Shehab Khalaf 20210459]
+### [Shehab Khalaf 20210459] works on UI branch
 - Designed and implemented the UI using Windows Forms.
 - Developed the logic for adding and borrowing in UI.
 
 
-### [Zeyad Mohamed 20210370]
+### [Zeyad Mohamed 20210370] works on UI branch
 - worked on the other two functions in Ui.
 - Handled logic of searching and returning books in UI.
 
-### [Belal Hanfy 20210229]
+### [Belal Hanfy 20210229] worked on library operations branch
 - Worked on 2 functions in library operations.
 - Handled addBook and borrowBook functions.
 
-### [Ahmed Ali 20210082]
+### [Ahmed Ali 20210082] worked on library operations branch
 - Worked on other 2 functions in library operations.
 - Handled returnBook and searchBook functions.
 
-### [Ahmed Mohsen 20210094]
+### [Ahmed Mohsen 20210094] works on data branch
 - Worked on other data file.
 - Handled loadbooks function.
 - Handled the structure of text file to store data in.
 
-### [Ahmed Ezzat 20210077]
+### [Ahmed Ezzat 20210077] works on data branch
 - Worked on other data file.
 - Handled saveBooks function.
 - Handled the structure of text file to store data in with ahmed mohsen.
